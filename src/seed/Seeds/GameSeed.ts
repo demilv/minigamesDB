@@ -1,13 +1,13 @@
-import { gameModel } from '../../Schemas/GameS';
+import { GameModel } from '../../Schemas/GameS';
 import { faker } from '@faker-js/faker';
 
 const createRandomGame = () => {
 
-return new gameModel({
-    name: `${faker.person.firstName()} ${faker.person.lastName()}`,
-    bImage: faker.internet.img(),
-    price: faker.number(),
-    status: faker.internet.password(),
+return new GameModel({
+    name: faker.commerce.productName(),
+    bImage: faker.image.url(),
+    price: faker.number.float({ min: 5, max: 15, fractionDigits: 0.01 }),
+    status: faker.datatype.boolean(),
     //owned
   });
 };
