@@ -7,8 +7,7 @@ return new GameModel({
     name: faker.commerce.productName(),
     bImage: faker.image.url(),
     price: faker.number.float({ min: 5, max: 15, fractionDigits: 0.01 }),
-    status: faker.datatype.boolean(),
-    //owned
+    status: faker.datatype.boolean(),    
   });
 };
 

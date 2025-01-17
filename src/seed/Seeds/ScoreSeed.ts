@@ -6,10 +6,9 @@ import { faker } from '@faker-js/faker';
 const createRandomScore = () => {
 
 return new ScoreModel({
-    score: `${faker.person.firstName()} ${faker.person.lastName()}`,
-    owner: faker.internet.email(),
-    gameId: faker.phone.number().toString(),
-    //owned
+    score: 
+    owner: 
+    gameId: 
   });
 };
 

@@ -6,7 +6,7 @@ const userSchema = new Schema<User>({
     email: {type: String},
     phone: {type: String},
     pass: {type: String},
-    owned: {type: [String]}
+    owned: { type: [Schema.Types.ObjectId], ref: 'Game', required: true }
   });
   
   export const UserModel = model<User>('User', userSchema);
