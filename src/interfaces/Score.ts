@@ -4,6 +4,6 @@ import { Types } from "mongoose";
 export interface Score{
     _id: string,
     score: number,
-    owner: string,
+    ownerId: Types.ObjectId;
     gameId: Types.ObjectId;
 }

@@ -12,4 +12,4 @@ return new UserModel({
   });
 };
 
-export const randomUsers = Array.from({ length: 10 }, createRandomUser);
+export const randomUsers = Array.from({ length: 6 }, createRandomUser);

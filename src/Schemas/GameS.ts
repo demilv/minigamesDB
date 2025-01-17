@@ -8,4 +8,4 @@ const gameSchema = new Schema<Game>({
     status: {type: Boolean},
   });
   
-  export const gameModel = model<Game>('Game', gameSchema);
+  export const GameModel = model<Game>('Game', gameSchema);

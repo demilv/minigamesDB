@@ -13,4 +13,4 @@ return new ScoreModel({
   });
 };
 
-export const randomUsers = Array.from({ length: 10 }, createRandomScore);
+export const randomUsers = Array.from({ length: 12 }, createRandomScore);
