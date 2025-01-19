@@ -12,4 +12,25 @@ export async function hashPassword(password: string): Promise<string> {
     }
   }
   
-  
+export default async function checkUser(name: string, password: string): Promise<boolean> {
+  try {
+    const user = await UserModel.findOne({ name:name }).exec();
+    if (!user) {
+      console.log('Usuario no encontrado');
+      return false;
+    }
+
+    const matchPass = await bcrypt.compare(password, user.pass);
+    
+    if (matchPass) {
+      console.log('Autenticación exitosa noice');
+      return true;
+    } else {
+      console.log('Contraseña incorrecta');
+      return false;
+    }
+  } catch (err) {
+    console.error('Error al verificar las credenciales:', err);
+    return false;
+  }
+}
