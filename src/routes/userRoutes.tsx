@@ -1,5 +1,5 @@
 const express = require('express');
-import {getOneUser, setNewUser, updateUser, deleteUser} from '../controllers/user';
+import {getOneUser, setNewUser, updateUser, deleteUser} from '../controllers/userController';
 const router = express.Router();
 
 router.get("/delUser/:id", deleteUser)
