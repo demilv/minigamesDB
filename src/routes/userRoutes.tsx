@@ -1,8 +1,10 @@
 const express = require('express');
-import {getOneUser, setNewUser, updateUser, deleteUser} from '../controllers/userController';
+import {getAllUsers, getOneUser, setNewUser, updateUser, deleteUser} from '../controllers/userController';
 const router = express.Router();
 
 router.get("/delUser/:id", deleteUser)
+
+router.get("/", getAllUsers)
 
 router.get("/:id", getOneUser)
 
