@@ -1,7 +1,6 @@
 import bcrypt from 'bcryptjs';
-import { UserModel } from './../Schemas/UserS';
+import { UserModel } from '../../Schemas/UserS';
 
-//Similar al hashCheck
 export class AuthService {
   static async authenticateUser(name: string, pass: string): Promise<boolean> {
     try {
