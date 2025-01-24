@@ -8,8 +8,8 @@ export class Game {
 
     static async fetchAll() : Promise<GameInterface[]> {
         try{
-            const users = await GameModel.find({}).exec();
-            return users as GameInterface[];
+            const games = await GameModel.find({}).exec();
+            return games as GameInterface[];
         } catch(error) {
             throw new APIError(`Games not found: ` , 404);
         }
@@ -19,20 +19,20 @@ export class Game {
     static async getGame(id: string) {    
         const objectId = new Types.ObjectId(id); 
 
-        const user = await GameModel.findById(objectId).exec(); 
+        const game = await GameModel.findById(objectId).exec(); 
         
-        if (!user) {
+        if (!game) {
             throw new APIError(`Game not found: ${id}`, 404);            
         }
-        return user;
+        return game;
     }
     
 
     static async save(newGame: GameInterface): Promise<GameInterface> {
         try {
-            const user = new GameModel(newGame);
-            await user.save();
-            return user as GameInterface;
+            const game = new GameModel(newGame);
+            await game.save();
+            return game as GameInterface;
         } catch (error) {
             throw new APIError(`Games not saved: ` , 404);
         }
