@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { User as UserService } from './services/user';
+import { User as UserService } from './services/userService';
 import { User as UserInterface } from '../interfaces/User';
 import { hashPassword } from '../HashingChecking/HashingChecking/HashCheck';
 import { Types } from 'mongoose';
