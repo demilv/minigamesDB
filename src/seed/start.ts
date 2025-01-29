@@ -1,4 +1,3 @@
-import { connect, connection } from "mongoose";
 import { GameModel } from "../Schemas/GameS";
 import { UserModel } from "../Schemas/UserS";
 import { ScoreModel } from "../Schemas/ScoreS";
@@ -7,6 +6,7 @@ import { randomScores } from "./Seeds/ScoreSeed";
 import { randomUsers } from "./Seeds/UserSeed";
 import checkUser, {hashPassword} from "../HashingChecking/HashingChecking/HashCheck";
 import dotenv from 'dotenv'
+import { connect, connection } from "mongoose";
 
 dotenv.config()
 
