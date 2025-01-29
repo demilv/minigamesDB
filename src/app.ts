@@ -3,7 +3,10 @@ import dotenv from 'dotenv';
 import cors from 'cors'
 import jwt from 'jsonwebtoken';
 import checkUser from './HashingChecking/HashingChecking/HashCheck';
-// import routerAuth from './routes/authRoutes'
+import routerAuth from './routes/authRoutes';
+import routerGames from './routes/gameRoutes';
+import routerScores from './routes/scoreRoutes';
+import routerUsers from './routes/userRoutes';
 import AuthMiddleware from './middleware/auth';
 import serverless from 'serverless-http';
 import mongoose from 'mongoose';
@@ -39,7 +42,10 @@ app.post('/login', async (req: Request, res: Response, _next: NextFunction) => {
     }
 });
 
-// app.use('/auth', AuthMiddleware, routerAuth)
+ app.use('/auth', AuthMiddleware, routerAuth)
+ app.use('/games', AuthMiddleware, routerGames)
+ app.use('/scores', AuthMiddleware, routerScores)
+ app.use('/users', AuthMiddleware, routerUsers)
 
 app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
     console.error(err);
