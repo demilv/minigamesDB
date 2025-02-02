@@ -7,17 +7,24 @@ const getRandomGame = (array: string[]) => {
   return array.sort(() => 0.5 - Math.random()).slice(0, randomLength); 
 };
 
-const createRandomUser = async () => {
+const createRandomUsers = async (count: number) => {
   const allGames = await GameModel.find({}, '_id'); 
   const gameIds = allGames.map(game => game._id);   
 
-return new UserModel({
-    name: `${faker.person.firstName()} ${faker.person.lastName()}`,
-    email: faker.internet.email(),
-    phone: faker.phone.number().toString(),
-    pass: faker.internet.password(),
-    owned: getRandomGame(gameIds),
-  });
+  const users = [];
+  for (let i = 0; i < count; i++) {
+    users.push(
+      new UserModel({
+        name: `${faker.person.firstName()} ${faker.person.lastName()}`,
+        email: faker.internet.email(),
+        phone: faker.phone.number().toString(),
+        pass: faker.internet.password(),
+        owned: getRandomGame(gameIds),
+      })
+    );
+  }
+
+  return users;
 };
 
-export const randomUsers = Array.from({ length: 6 }, createRandomUser);
+export const randomUsers = createRandomUsers(6);
