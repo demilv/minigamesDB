@@ -12,24 +12,32 @@ const generateScore = (gameIndex: number) => {
     }
   };
 
-  const createRandomScore = async () => {
+  const createRandomScore = async (count:number) => {
     const allUsers = await UserModel.find({}, '_id');
     const userIds = allUsers.map(user => user._id);
   
     const allGames = await GameModel.find({}, '_id');
     
     const randomUser = faker.helpers.arrayElement(userIds);
-    
+
     const randomGameIndex = faker.number.int({ min: 0, max: allGames.length - 1 });
+    console.log(randomGameIndex)
     const randomGameId = allGames[randomGameIndex]._id;
+    console.log(randomGameId)
     
-    const score = generateScore(randomGameIndex);
-  
-    return new ScoreModel({
-      score: score,
-      owner: randomUser,  
-      gameId: randomGameId, 
-    });
+
+    const savedScores = []
+    for(let i = 0; i< count; i++){
+      const score = generateScore(randomGameIndex);
+      savedScores.push(
+        new ScoreModel({
+          score: score,
+          userId: randomUser,  
+          gameId: randomGameId, 
+        })
+      )
+    }
+    return savedScores;
   };
 
-export const randomScores = Array.from({ length: 12 }, createRandomScore);
+export const randomScores = async () => await createRandomScore(12);

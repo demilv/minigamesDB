@@ -1,8 +1,8 @@
 import { GameModel } from "../Schemas/GameS";
 import { UserModel } from "../Schemas/UserS";
-//import { ScoreModel } from "../Schemas/ScoreS";
+import { ScoreModel } from "../Schemas/ScoreS";
 import { randomGames } from "./Seeds/GameSeed";
-//import { randomScores } from "./Seeds/ScoreSeed";
+import { randomScores } from "./Seeds/ScoreSeed";
 import { randomUsers } from "./Seeds/UserSeed";
 import checkUser, {hashPassword} from "../HashingChecking/HashingChecking/HashCheck";
 import dotenv from 'dotenv'
@@ -41,9 +41,10 @@ export async function initializeDatabase() {
     }
 
     await GameModel.insertMany(randomGames);
-    const users = await randomUsers; 
+    const users = await randomUsers(); 
     await UserModel.insertMany(users);
-    //await ScoreModel.insertMany(randomScores);
+    const scores = await randomScores();
+    await ScoreModel.insertMany(scores);
 
     console.log('Datos insertados correctamente');
   } catch (err) {

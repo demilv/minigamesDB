@@ -8,6 +8,7 @@ const getRandomGame = (array: string[]) => {
 };
 
 const createRandomUsers = async (count: number) => {
+
   const allGames = await GameModel.find({}, '_id'); 
   const gameIds = allGames.map(game => game._id);   
 
@@ -27,4 +28,4 @@ const createRandomUsers = async (count: number) => {
   return users;
 };
 
-export const randomUsers = createRandomUsers(6);
+export const randomUsers = async () => await createRandomUsers(6);

@@ -3,7 +3,7 @@ import { Score } from '../interfaces/Score';
 
 const scoreSchema = new Schema<Score>({
     score: {type: Number},
-    ownerId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     gameId: { type: Schema.Types.ObjectId, ref: 'Game', required: true }
   });
   
