@@ -2,7 +2,7 @@ service: minigamesDB
 
 provider:
   name: aws
-  runtime: nodejs20.x  
+  runtime: nodejs20.x  # El runtime que estás usando (ajusta según tu versión de Node.js)
   region: eu-west-3  
 
 functions:
@@ -12,24 +12,10 @@ functions:
       - http:
           path: /
           method: ANY
-          cors:
-            origins:
-              - "*" 
-            headers:
-              - Content-Type
-              - Authorization
-              - X-Requested-With
-            allowCredentials: true  
+          cors: true
       - http:
           path: /{proxy+}
           method: ANY
-          cors:
-            origins:
-              - "*" 
-            headers:
-              - Content-Type
-              - Authorization
-              - X-Requested-With
-            allowCredentials: true  
+          cors: true
     environment:
       ACCESS_CONTROL_ALLOW_ORIGIN: '*'
