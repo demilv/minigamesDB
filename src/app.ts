@@ -19,7 +19,7 @@ app.use(cors())
 const start = async () => {
     try {
       await mongoose.connect(
-        `mongodb+srv://gonzalocano:${process.env.BASEKEY}@cluster0.tkcwqd3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+        `mongodb+srv://gonzalocano:${process.env.BASEKEY}@cluster0.tkcwqd3.mongodb.net/${process.env.BASE}?retryWrites=true&w=majority&appName=Cluster0`           
       )
     } catch (error) {
       console.error(error);
@@ -30,6 +30,12 @@ start();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`El servidor se activó en http://localhost:${PORT}`);
+});
+
 
 app.post('/login', async (req: Request, res: Response, _next: NextFunction) => {
     const { name, password } = req.body;    

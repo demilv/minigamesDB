@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/app.ts",
   "scripts": {
     "start": "nodemon",
     "test": "",
@@ -30,6 +30,7 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^22.12.0",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2"
   }
 }

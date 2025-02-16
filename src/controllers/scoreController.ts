@@ -46,7 +46,7 @@ export const getOneScore = async (req: Request, res: Response, next: NextFunctio
 export const setNewScore = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const newScore: ScoreInterface = req.body;
-        if (!newScore.score || !newScore.ownerId ||
+        if (!newScore.score || !newScore.userId ||
             !newScore.gameId) 
         {            
             return res.status(400).json({ message: 'Missing required fields' });
