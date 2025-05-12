@@ -47,7 +47,7 @@ export const setNewGame = async (req: Request, res: Response, next: NextFunction
     try {
         const newGame: GameInterface = req.body;
         if (!newGame.name || !newGame.bImage ||
-            !newGame.price || !newGame.status) 
+            !newGame.price || !newGame.status || newGame.review || newGame.instructions) 
         {            
             return res.status(400).json({ message: 'Missing required fields' });
         }

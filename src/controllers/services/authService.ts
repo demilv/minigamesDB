@@ -9,7 +9,7 @@ export class AuthService {
         console.log('Usuario no encontrado');
         return false;
       }
-
+      console.log("pass normal" + pass + "y pass de usuario" + user.pass)
       const isPasswordMatch = await bcrypt.compare(pass, user.pass);
       
       if (isPasswordMatch) {

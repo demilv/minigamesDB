@@ -91,7 +91,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-eu-west-3-1488bea2-7ca5",
-          "S3Key": "serverless/minigamesDB/dev/1739541302199-2025-02-14T13:55:02.199Z/minigamesDB.zip"
+          "S3Key": "serverless/minigamesDB/dev/1739709855695-2025-02-16T12:44:15.695Z/minigamesDB.zip"
         },
         "Handler": "dist/lambda.handler",
         "Runtime": "nodejs20.x",
@@ -339,7 +339,7 @@
         "AppLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1739541231668": {
+    "ApiGatewayDeployment1739709795432": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
